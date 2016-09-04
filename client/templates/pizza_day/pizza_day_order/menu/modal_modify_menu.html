@@ -1,0 +1,70 @@
+<template name="modal_modify_menu">
+
+<div class="modal fade" id="m_modify_menu" tabindex="-1" role="dialog"
+																										aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+																							aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title text-center">
+											Modify the following values</h4>
+				</div>
+				<div class="modal-body">
+					{{#with this}}
+						<form id='modifiedMenuItem'>
+							<div class="row">
+								<div class='col-sm-6 col-6-md col-6-lg text-right'>
+									Category:
+								</div>
+								<div class='col-sm-6 col-6-md col-6-lg'>
+									<label>{{category}}</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class='col-sm-6 col-6-md col-6-lg text-right'>
+									Item's Name:
+								</div>
+								<div class='col-sm-6 col-6-md col-6-lg'>
+									<div name='itemName'>
+											{{itemName}}
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class='col-sm-6 col-6-md col-6-lg text-right'>
+									Price:
+								</div>
+								<div class='col-sm-6 col-6-md col-6-lg'>
+									<input value='{{price}}' name='price'>
+								</div>
+							</div>
+							<div class="row">
+								<div class='col-sm-6 col-6-md col-6-lg text-right'>
+									Description:
+								</div>
+								<div class='col-sm-6 col-6-md col-6-lg'>
+									<textarea value='{{description}}' name="description"></textarea>
+								</div>
+							</div>
+
+						</form>
+					{{/with}}
+				</div>
+				<div class="modal-footer">
+					<button name="saveModified" id='saveModified' class='btn btn-default' >
+						Save Changes
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div>
+	</div>
+</template>
+

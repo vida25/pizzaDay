@@ -1,0 +1,123 @@
+.testColor {
+	background: #88FF88;
+	border-radius: 20px;
+}
+											/* modal window */
+.glyphicon-plus,
+.glyphicon-remove,
+.glyphicon-cog,
+.glyphicon-search,
+.glyphicon-user,
+img {
+	cursor: pointer;
+}
+div.table>div:nth-child(odd) {
+	background: #efe;
+}
+div.table>div:nth-child(2n) {
+	background: #8f8;
+}
+div.table>div:nth-child(3n) {
+	background: #afa;
+}
+div.table>div:nth-child(4n) {
+	background: #cfc;
+}
+div.table>div{
+	line-height: 30px;
+	height: 30px;
+}
+
+div.table>div:nth-child(1) {
+	line-height: 20px;
+	height: 20px;
+	background: #000;
+	color: white;
+	font-weight: bold;
+}
+
+div.height_120>div {
+	height: 120px;
+}
+
+div.height_70>div:nth-child(1) {
+	line-height: 20px;
+	height: 20px;
+}
+
+
+
+span.glyphicon-bell {
+	color: blue;
+} span.glyphicon-bell:hover {cursor: alias;}
+											/* modal window end*/
+
+
+												/* pizza_day_order bar style begin*/
+
+
+div[name=pizza_day_order] {
+	/*margin-top: 50px;*/
+	width: 800px;
+	margin-top: 15%;
+	margin-left: auto;
+	margin-right: auto;
+}
+div[name=pizza_day_order] > label {
+	display: block;
+	text-align: center;
+	width: 100%;
+	height: 60px;
+	color: #fff;
+	line-height: 60px;
+	background: rgb(0, 0, 0);
+	opacity: 1;
+	margin-top: 0;
+	margin-bottom: 0;
+	border-bottom: 1px solid white;
+	font-size: 2em;
+}
+
+div[name=pizza_day_order] > label:hover {
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+div[name=pizza_day_order] > label + div{
+	display: none;
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: 380px;
+	padding: 5px 0;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.font-small {
+	font-size: 0.8em;
+}
+
+.margin-l1-r1 {
+	margin: 0 1%;
+	width: 98%
+}
+
+
+
+
+
+/*div[name=pizza_day_order] > label:hover + div,
+div[name=pizza_day_order] > label + div:hover  {
+	display: block;
+	height: 300px;
+}*/
+
+
+
+
+												/* pizza_day_order bar style  end*/
+
+
+

@@ -1,0 +1,45 @@
+<template name="modal_event_subscribe">
+		<div class="modal fade" id="subNewEvents" tabindex="-1" role="dialog"
+																										aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+																								aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">
+												Subscribe the following events</h4>
+					</div>
+					<div class="modal-body">
+					{{#each this}}
+						<div class='row' style='border-bottom: 1px solid #eeeeee;'>
+							<div class='col-md-6 col-sm-6 col-xm-6 text-right'>
+							<div><small>Owner:</small></div>
+							<div><small>Group:</small></div>
+								<label>
+									<small>Subscribe </small>
+									<input type="radio" checked value='1' name="{{groupName}}{{email}}">
+								</label>
+							</div>
+							<div class='col-md-6 col-sm-6 col-xm-6'>
+							<div>{{email}}</div>
+							<div>{{groupName}}</div>
+								<label>
+								<small>Ignore</small>
+									<input type="radio" value='0' name="{{groupName}}{{email}}">
+								</label>
+							</div>
+						</div>
+					{{/each}}
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" name='save_event_btn'>
+							Subscribe Events
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>

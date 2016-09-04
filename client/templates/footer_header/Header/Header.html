@@ -1,0 +1,17 @@
+<template name="Header">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="/">Home<span class="sr-only"></span></a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li  class='active'><a href="{{pathFor route='pizza_day'}}">Pizza Day</a></li>
+					<!-- <li class="nav navbar-nav"><a href="#">{{> loginButtons align='right'}}</a></li>-->
+					<li class="nav navbar-nav"><div class='text-center text-success' style='height: 50px; line-height: 50px;'>{{> loginButtons align='right'}}</div></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+</template>

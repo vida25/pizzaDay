@@ -1,0 +1,99 @@
+<template name="modalUsersGroupConfig">
+	<div class="modal fade" id="m_users_group_config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title text-center" >Configuration</h4>
+			</div>
+			<div class="modal-body">
+		<ul class="nav nav-tabs nav-justified" role="tablist">
+			<li role="presentation" class="active">
+				<a href="#add_users_to_group" aria-controls="add_users_to_group" role="tab" data-toggle="tab">Add Users</a>
+			</li>
+				<li role="presentation">
+					<a href="#delete_users_from_group" aria-controls="delete_users_from_group" role="tab" data-toggle="tab">Remove users</a>
+				</li>
+		</ul>
+
+	<div class="tab-content">
+
+		<div role="tabpanel" class="tab-pane active" id="add_users_to_group">
+	{{#if this.usersOutOfGroup}}
+		<h4 class='text-center text-uppercase testColor'>Add users to group</h4>
+
+		<div class='table'>
+		<div class='row text-center table_header'>
+			<div class='col-md-5 col-sm-5 col-xs-5'>
+					User's name </div>
+			<div class='col-md-5 col-sm-5 col-xs-5'>Email </div>
+			<div class='col-md-2 col-sm-2 col-xs-2'>
+			</div>
+		</div>
+
+		{{#each this.usersOutOfGroup}}
+			<div class='row text-center'>
+				<div class='col-md-5 col-sm-5 col-xs-5' name='user_name'>
+					{{userName}} </div>
+				<div class='col-md-5 col-sm-5 col-xs-5' name='email'>
+					{{email}} </div>
+				<div class='col-md-2 col-sm-2 col-xs-2 text-center' data-email='{{email}}'>
+					<button name="addUser" class='btn btn-xs'>Add</button>
+				</div>
+			</div>
+		{{/each}}
+
+		</div>
+		{{else}}
+			<h2 class='text-center'>No users to add to the group</h2>
+		{{/if}}
+				</div>
+
+
+	<div role="tabpanel" class="tab-pane" id="delete_users_from_group">
+		{{#if this.usersInGroup}}
+		<h4 class='text-center text-uppercase testColor'>
+		Remove users from the group</h4>
+
+		<div class='table'>
+		<div class='row text-center table_header'>
+			<div class='col-md-5 col-sm-5 col-xs-5'>
+					User's name </div>
+			<div class='col-md-5 col-sm-5 col-xs-5'>Email </div>
+			<div class='col-md-2 col-sm-2 col-xs-2'>
+			</div>
+		</div>
+		{{#each this.usersInGroup}}
+			<div class='row text-center'>
+				<div class='col-md-5 col-sm-5 col-xs-5' name='user_name'>
+					{{userName}} </div>
+				<div class='col-md-5 col-sm-5 col-xs-5' name='email'>
+					{{email}} </div>
+				<div class='col-md-2 col-sm-2 col-xs-2 text-center' data-email='{{email}}'>
+					<button name="removeUser" class='btn btn-xs'>Remove</button>
+				</div>
+			</div>
+		{{/each}}
+
+		</div>
+		{{else}}
+			<h2 class='text-center'>Your group don't have any user</h2>
+		{{/if}}
+				</div>
+
+
+
+
+			</div>
+
+
+
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+</template>

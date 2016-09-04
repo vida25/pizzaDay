@@ -1,0 +1,65 @@
+<template name="EventsTemplate">
+		<div id="active_events">
+
+			{{#if this}}
+				<div class='table margin-l1-r1 '>
+					<div class="row text-center">
+						<div class='col-md-2 col-sm-2 col-lg-2 col-xs-2'>
+							Group name
+						</div>
+						<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">
+						Date
+						</div>
+						<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">
+						Owner's Email
+						</div>
+						<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">
+						Status
+						</div>
+						<div class="col-md-1 col-sm-1 col-lg-1 col-xs-1">
+						</div>
+					</div>
+					{{#each this}}
+						<div class="row text-center">
+							<div class="col-md-2 col-sm-2 col-lg-2 col-xs-2" name='group_name'>
+								{{groupName}}
+							</div>
+							<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3 font-small">{{currentEvent.date}}
+							</div>
+							<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3 font-small">
+								{{email}}
+							</div>
+							<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">
+							{{#if allowChangeStatus}}
+								<button class='btn btn-default btn-xs' name="change_status">{{currentEvent.status}}</button>
+								<button class='btn btn-default btn-xs' id='modal_discount_show'>Discount</button>
+								{{else}}
+									{{currentEvent.status}}
+								{{/if}}
+							</div>
+							<div class="col-md-1 col-sm-1 col-lg-1 col-xs-1 text-center">
+						{{#if allowOrder}}
+							<button class='btn btn-default btn-xs inline-block' name="make_order">
+								Order
+							</button>
+						{{else}}
+							<button class='btn btn-default btn-xs inline-block' id='price_of_order'>
+								Price
+							</button>
+						{{/if}}
+						</div>
+						</div>
+					{{/each}}
+				</div>
+
+	{{else}}
+	<h2 class="text-center">You have no active events to observe</h2>
+			{{/if}}
+		{{>modal_make_order menuItemsOrder }}
+		{{>m_order_preview orderPreview}}
+		{{>modal_add_discount menuItems}}
+		{{>modalChangeStatus users_status}}
+
+</div>
+
+</template>

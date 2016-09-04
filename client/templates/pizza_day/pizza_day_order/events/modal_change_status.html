@@ -1,0 +1,74 @@
+<template name="modalChangeStatus">
+	<div class="modal fade" id="m_change_status" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title text-center" >Status configuration</h4>
+			</div>
+			<div class="modal-body">
+				<div class='table text-center'>
+					<div class='row'>
+						<div class="col-md-5 col-sm-5 col-lg-5  col-xs-5">
+							<small>Name</small>
+						</div>
+						<div class="col-md-5 col-sm-5 col-lg-5 col-xs-5">
+							<small>Email</small>
+						</div>
+						<div class="col-md-2 col-sm-2 col-lg-2 col-xs-2">
+							<small>Ready</small>
+						</div>
+					</div>
+					{{#each this.users_status}}
+					<div class='row'>
+						<div class="col-md-5 col-sm-5 col-lg-5 col-xs-5">
+							<small>{{userName}}</small>
+						</div>
+						<div class="col-md-5 col-sm-5 col-lg-5 col-xs-5">
+							<small>{{email}}</small>
+						</div>
+						<div class="col-md-2 col-sm-2 col-lg-2 col-xs-2">
+						{{#if ready}}
+							<span class="text-success glyphicon glyphicon-ok"></span>
+							{{else}}
+							<span class="text-danger glyphicon glyphicon-minus"></span>
+						{{/if}}
+						</div>
+					</div>
+
+					{{/each}}
+				</div>
+{{#if this.ownerEmail}}
+<p class='text-center'>Email: <span name='email'>{{this.ownerEmail}}</span></p>
+<form class="form" id='email_uri_config'>
+	<div class="form-group has-error has-feedback inline-block">
+		<div class="input-group">
+			<input type="password" class="form-control" id="password_email_url" aria-describedby="inputGroupSuccess3Status" placeholder="Password">
+			<span class="input-group-addon" aria-hidden="true"></span>
+		</div>
+		<span id="inputGroupSuccess3Status" class="sr-only">(success)</span>
+	</div>
+</form>
+{{/if}}
+
+				<div class='text-center'>
+					<div class='row'>
+						<button name="changeStatus" id='btn_change_stat' class='inline-block'>Change status</button>
+					</div>
+					<div class='row'>
+						<span id='current_status_show' class='text-capitalize bg-danger'></span>
+					</div>
+				</div>
+				<div class='text-center'>
+					<button id="delete_event" class='hidden'>
+						Close event
+					</button>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+</template>

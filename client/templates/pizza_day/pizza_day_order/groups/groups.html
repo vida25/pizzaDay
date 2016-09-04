@@ -1,0 +1,150 @@
+<template name="Groups">
+	<ul class="nav nav-tabs nav-justified" role="tablist">
+		<li role="presentation">
+			<a href="#add_group" aria-controls="add_group" role="tab" data-toggle="tab">Create</a>
+		</li>
+		<li role="presentation" class="active">
+			<a href="#your_groups" aria-controls="allGroups" role="tab" data-toggle="tab">Yours</a>
+		</li>
+		<li role="presentation">
+			<a href="#you_invited_to_groups" aria-controls="messages" role="tab" data-toggle="tab">You invited to</a>
+		</li>
+	</ul>
+	<!-- tab-content -->
+
+					<!-- Tab panes -->
+<!-- 					your_groups				 -->
+<!-- 					add_group				 -->
+<!-- 					you_invited_to_groups				 -->
+<!-- 					settings				-->
+
+	<div class="tab-content">
+
+<!-- tab 1 -->
+<div role="tabpanel" class='tab-pane'  id="add_group">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 text-center">
+		<h4 class='text-uppercase testColor'>Groups name</h4>
+				<input type="text" class='bg-danger inline-block' name="input_group_name" id='input_group_name' placeholder="Group Name" style='width: 200px'>
+			</div>
+<!-- 			<div class="col-md-6 col-sm-6 text-center">
+ 			</div> -->
+		</div>
+		<h4 class='text-center text-uppercase testColor'>Select users for add to group</h4>
+
+		<div class='table'>
+		<div class='row text-center table_header'>
+			<div class='col-md-5 col-sm-5 col-xs-5'>
+					User's name </div>
+			<div class='col-md-5 col-sm-5 col-xs-5'>Email </div>
+			<div class='col-md-2 col-sm-2 col-xs-2'>
+				<a href='#' class='text-success text-center' name='select_all'>
+					select
+				</a>
+			</div>
+		</div>
+		{{#each allUsers}}
+			<div class='row text-center'>
+				<div class='col-md-5 col-sm-5 col-xs-5' name='user_name'>
+					{{userName}} </div>
+				<div class='col-md-5 col-sm-5 col-xs-5' name='email'>
+					{{email}} </div>
+				<div class='col-md-2 col-sm-2 col-xs-2 text-center' data-email='{{email}}'>
+					<input type="checkbox" class="check_box_select_users" name='check_box_select_users'>
+
+				</div>
+			</div>
+		{{/each}}
+		</div>
+		<div class="text-right">
+			<button type="button" class="btn btn-primary btn-md disabled" style='width: 200px' name='save_group'>Save</button>
+			</div>
+	</div>
+
+
+
+<!-- tab 2 -->
+
+
+		<div role="tabpanel" class="tab-pane active" id="your_groups">
+			<div class='height_120'>
+			{{#if yourGroups}}
+			{{#each yourGroups}}
+			<div class='row text-center'>
+				<div class='col-md-2 col-sm-2 col-xs-2 text-right' style="height: 100px">
+						<figure class="figure">
+							<img src="{{logo}}" class="figure-img img-fluid img-rounded" alt="image" data-group={{groupName}}>
+						</figure>
+				</div>
+				<div  class='col-md-3 col-sm-3 col-xs-3 text-left'>
+							<div name='groupName' class='text-primary'>
+								<strong>{{groupName}}</strong></div>
+							<div name='email' class="text-primary">
+								<small class='glyphicon glyphicon-user'>Users</small>
+							</div>
+							<div>
+							{{#if this.currentEvent.status}}
+								<small class='glyphicon glyphicon-ok text-success' title='Event Created'>Event</small>
+								{{else}}
+								<small name='create_event' class='glyphicon glyphicon-plus text-success' title='Create Event'>Event</small>
+							{{/if}}
+								<small name='group_remove' class='text-danger glyphicon glyphicon-remove ' title='Remove group'>Remove</small>
+							</div>
+				</div>
+			</div>
+			{{/each}}
+
+			{{else}}
+				<h1 class='text-center'>You have no groups</h1>
+		{{/if}}
+		</div>
+	</div>
+
+<!-- tab 3 -->
+
+		<div role="tabpanel" class='tab-pane' id="you_invited_to_groups">
+		{{#if groups_you_invited_in}}
+
+			{{#each groups_you_invited_in}}
+			<div class='row text-center'>
+				<div class='col-md-2 col-sm-2 col-xs-2 text-right' style="height: 100px">
+					{{#if this.logo}}
+						<figure class="figure">
+							<img src="{{logo}}" class="figure-img img-fluid img-rounded" alt="image" data-group='{{groupName}}'>
+						</figure>
+					{{/if}}
+				</div>
+				<div  class='col-md-3 col-sm-3 col-xs-3 text-left'>
+							<div name='groupName' class='text-primary'>
+								<strong>{{groupName}}</strong></div>
+							<div name='email' class="text-primary">
+								<small>{{email}}</small>
+							</div>
+							<div>
+							{{#if this.currentEvent.status}}
+								<small class='glyphicon glyphicon-ok text-success' title='Active event'>Event</small>
+								{{else}}
+								<small class='glyphicon glyphicon-minus text-danger' title='No active event'>Event</small>
+							{{/if}}
+							</div>
+				</div>
+			</div>
+			{{/each}}
+
+			{{else}}
+				<h1 class='text-center'>You are not invited to any group</h1>
+			{{/if}}
+		</div>
+
+	</div>
+
+	{{> modalCreateEvent}}
+	{{> modalSelectLogo logotypes}}
+	{{> modalUsersGroupConfig usersOutInGroup}}
+</template>
+
+
+
+
+
+

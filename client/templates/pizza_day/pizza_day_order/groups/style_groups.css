@@ -1,0 +1,21 @@
+#your_groups,
+#add_group,
+#you_invited_to_groups,
+#settings {
+	position: relative;
+	padding: 5px 0px;
+}
+
+span[name=select_all] {
+	cursor: pointer;
+}
+
+#add_group button[name=save_group] {
+	display: inline-block;
+}
+
+#modalCrEvConf div.row {
+	margin: 5px 0;
+}
+
+

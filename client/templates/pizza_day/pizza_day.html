@@ -1,0 +1,65 @@
+<template name="pizzaDay">
+
+	<!-- Button trigger modal -->
+
+	<div name='pizza_day_order'>
+		<label>Groups	</label>
+			<div class='hidden'>
+				{{> Groups}}
+			</div>
+		<label>Menu	</label>
+			<div class='hidden'>
+				{{>menuItemsTmpl menuItems}}
+			</div>
+		<label>Events
+			{{#if eventsOffered}}
+				<span class="glyphicon glyphicon-bell" id='active_event_subscribe'>
+				</span>
+			{{/if}}
+		</label>
+			<div class='hidden'>
+					{{>EventsTemplate activeEvents}}
+			</div>
+	</div>
+
+	<!-- Modal add_new_group_modal -->
+	<div class="modal fade" id="add_new_group_modal" tabindex="-1" role="dialog"
+																										aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+																							aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">
+											Input the group name</h4>
+				</div>
+				<div class="modal-body">
+					<input type="text" name="input_group_name" placeholder="Group Name">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary disabled" name='save_group'>Save</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+<!--  modal  show_all_group_modal-->
+		{{>modal_event_subscribe eventsOffered}}
+</template>
+
+<!-- ////////////////////////////////////////////////////////////////// -->
+
+
+
+
+<!-- ////////////////////////////////////////////////////////////////// -->
+
+
+
+
+

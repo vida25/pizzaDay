@@ -1,0 +1,80 @@
+<template name="menuItemsTmpl">
+	<div>
+	{{#if groups_you_access_menu}}
+		<div class='text-center'>
+			<select name="select_group" id="select_menu_to_change" class="form-control inline">
+				{{#each groups_you_access_menu}}
+					<option value="{{groupName}}">{{groupName}}</option>
+				{{/each}}
+			</select>
+		</div>
+			{{#if menuItems}}
+
+			{{#each menuItems}}
+		<div>
+				<h3 class="text-center  text-capitalize">{{categoryItem}}</h3>
+			<div class="table">
+				<div class="row text-center">
+					<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">Name</div>
+					<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">Price</div>
+					<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">Description</div>
+					{{#if allowRemoveItem}}
+					<div class="col-md-2 col-sm-2 col-lg-2 col-xs-2">Modify</div>
+					<div class="col-md-1 col-sm-1 col-lg-1 col-xs-1">Del</div>
+					{{else}}
+					<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">Modify</div>
+					{{/if}}
+
+				</div>
+			{{#if content}}
+				{{#each content}}
+				<div class="row text-center">
+					<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3 text-capitalize">{{iName}}</div>
+					<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3 text-capitalize">{{price}}</div>
+					<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">
+						<a tabindex="0" class="btn btn-xs btn-default" role="button" data-toggle="popover" data-trigger="focus" data-content="{{description}}" data-placement="left" onclick="$(this).popover('show')">>>View</a>
+					</div>
+				{{#if allowRemoveItem}}
+				<div class="col-md-2 col-sm-2 col-lg-2 col-xs-2 text-center" name="{{../categoryItem}}.{{iName}}">
+						<span name='modify_item' class="glyphicon glyphicon-paperclip text-warning"></span>
+				</div>
+				<div class="col-md-1 col-sm-1 col-lg-1 col-xs-1" >
+					<span class='glyphicon glyphicon-remove text-danger' name='removeItemFromMenu'>
+						</span>
+				</div>
+					{{else}}
+				<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3 text-center" name="{{../categoryItem}}.{{iName}}">
+					<span name='modify_item' class="glyphicon glyphicon-paperclip text-warning"></span>
+				</div>
+				{{/if}}
+				</div>
+				{{/each}}
+				{{else}}
+				<h1 class="text-center bg-warning">This category is ampty</h1>
+			{{/if}}
+			</div>
+		</div>
+			{{/each}}
+			{{else}}
+		<h1 class="text-center">No menu in this group </h1>
+		{{/if}}
+			<div class="text-center">
+			<button name="addCategory_modal" class='btn btn-md inline' >
+				Add category
+			</button>
+		{{#if menu_category}}
+			<button name="addItems_modal" class='btn btn-md inline' >
+				Add Items
+			</button>
+		{{/if}}
+			</div>
+
+	{{else}}
+	<h1 class='text-center'>You have no menus to observe!</h1>
+{{/if}}
+{{>modal_modify_menu itemToModify}}
+{{>modal_addCategory}}
+{{>modal_addMenuItem menu_category}}
+</div>
+</template>
+

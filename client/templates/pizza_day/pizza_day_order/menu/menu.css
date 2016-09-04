@@ -1,0 +1,7 @@
+span[name='modify_item']{
+	font-size: 1.5em;
+	cursor: pointer;
+}
+.popover {
+	font-size: 0.8em;
+}

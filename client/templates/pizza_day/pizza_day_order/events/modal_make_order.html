@@ -1,0 +1,62 @@
+<template name="modal_make_order">
+
+<div class="modal fade" id="m_your_order" tabindex="-1" role="dialog"
+																										aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+																							aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title text-center">
+											Make your choice please</h4>
+				</div>
+				<div class="modal-body">
+		{{#if this}}
+		{{#each this}}
+			<h3 class="text-center bg-warning text-capitalize">{{this.categoryItem}}</h3>
+		<div class="table margin-l1-r1 ">
+			<div class="row text-center">
+				<div class="col-md-4 col-sm-4 col-lg-4 col-xs-4">Name</div>
+				<div class="col-md-2 col-sm-2 col-lg-2 col-xs-2">Price($)</div>
+				<div class="col-md-2 col-sm-2 col-lg-2 col-xs-2">Count</div>
+				<div class="col-md-2 col-sm-2 col-lg-2 col-xs-2">Description</div>
+				<div class="col-md-2 col-sm-2 col-lg-2 col-xs-2">Select</div>
+			</div>
+			{{#each this.content}}
+			<div class="row text-center">
+				<div class="col-md-4 col-sm-4 col-lg-4 col-xs-4 text-capitalize">{{iName}}</div>
+				<div class="col-md-2 col-sm-2 col-lg-2 col-xs-2 text-capitalize">{{price}}</div>
+				<div class="col-md-2 col-sm-2 col-lg-2 col-xs-2">
+					<input type="Number" class='text-left btn-xs' style='width:50px' name="{{iName}}" min="1" max="50" value="1">
+				</div>
+				<div class="col-md-2 col-sm-2 col-lg-2 col-xs-2">
+						<a tabindex="0" class="btn btn-xs btn-default" role="button" data-toggle="popover" data-trigger="focus" data-content="{{description}}" data-placement="left" onclick="$(this).popover('show')">>>View</a>
+				</div>
+				<div class="col-md-2 col-sm-2 col-lg-2 col-xs-2">
+					<input type="checkbox" name='{{../categoryItem}}.{{iName}}'>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+		{{/each}}
+		{{else}}
+			<h2 class='text-center'>No menu to observe in this group or you can't make your order at the time</h2>
+		{{/if}}
+				</div>
+				<div class="modal-footer">
+				{{#if this}}
+					<button name="complOrder" class='btn btn-default' >
+						Complete Order
+					</button>
+				{{/if}}
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div>
+	</div>
+</template>

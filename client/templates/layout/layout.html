@@ -1,0 +1,26 @@
+<template name="Layout">
+	<header>
+	<div class='row'>
+<div class='col-md-12'>{{> yield region='header'}}</div>
+	</div>
+	</header>
+	<div class="container-fluid">
+		<div class="row">
+<!-- <div class="col-md-offset-2"></div> -->
+
+		<div class="col-md-12">
+			<div class="row">
+				{{> yield}}
+			</div>
+
+		<!-- <div class="col-md-offset-2"></div> -->
+
+</div>
+
+	</div>
+	</div>
+
+	<footer>
+		<!-- <div class='col-md-12'>{{> yield region='footer'}}</div> -->
+	</footer>
+</template>

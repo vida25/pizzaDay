@@ -1,0 +1,66 @@
+<template name="modal_addMenuItem">
+		<div class="modal fade" id="modal_add_menu_item" tabindex="-1" role="dialog"
+																										aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+																							aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title text-center">
+											Fill the required fields</h4>
+				</div>
+				<div class="modal-body">
+					<form id='new_item_config'>
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+								<label for="category_name">Category's name:</label>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<select type="text" name="category_name">
+								{{#each this}}
+									<option>{{this}}</option>
+								{{/each}}
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+								<label>New item's name:</label>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<input type="text" name="itemName">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+								<label>Price</label>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<input type="text" name="price">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+								<label>Description</label>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<textarea name="description" value=''></textarea>
+							</div>
+						</div>
+				</form>
+				</div>
+				<div class="modal-footer">
+					<button id='save_menu_item' name="save"  class='btn btn-default hidden'>
+						Save
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div>
+	</div>
+</template>

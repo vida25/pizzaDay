@@ -1,0 +1,39 @@
+<template name="verticalMenu">
+	<div class="navbar-fixed-top">
+			<div class="menu">
+		{{#if userId}}
+				<div class='text-center'>
+					{{#each menuItem}}
+							{{> eachItem this}}
+					{{/each}}
+				</div>
+		{{/if}}
+			<div class='text-right navbar-fixed-top' >
+				<div class='vcenter '>
+				{{#unless userId}}<span>Please login by via Google</span> <br/>{{/unless}}
+					<div>
+							{{#if userId}}	<span> Welcome </span> {{/if}} {{> loginButtons align='right'}}
+					</div>
+				</div>
+			</div>
+			</div>
+	</div>
+</template>
+
+
+<!-- eachItem template -->
+
+
+<template name="eachItem">
+	<div class="dropdown btn-group">
+		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			{{name}}
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+		{{#each config}}
+			<li><a href='{{this.route}}'> {{this.subMenu}} </a></li>
+		{{/each}}
+		</ul>
+	</div>
+</template>

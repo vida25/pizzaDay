@@ -1,0 +1,57 @@
+<template name="modal_add_discount">
+	<div class="modal fade" id="m_add_discount" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title text-center" >Discount configuration</h4>
+			</div>
+			<div class="modal-body">
+			{{#if this}}
+
+			{{#each this}}
+				<h3 class="text-center  text-capitalize">{{categoryItem}}</h3>
+			<div class="table">
+				<div class="row text-center">
+					<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">Name</div>
+					<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">Price</div>
+					<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">
+						Count
+					</div>
+					<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">Specify</div>
+				</div>
+			{{#if content}}
+				{{#each content}}
+				<div class="row text-center">
+					<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3 text-capitalize">{{iName}}</div>
+					<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3 text-capitalize">{{price}}</div>
+					<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">
+						<input type="number" style='width:40px; height: 25px'
+						value=1 min=1 max=10 step=1>
+					</div>
+				<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3 text-center">
+						<input type='checkbox'  name="{{../categoryItem}}.{{iName}}">
+				</div>
+				</div>
+				{{/each}}
+				{{else}}
+				<h1 class="text-center bg-warning">This category is empty</h1>
+			{{/if}}
+			</div>
+			{{/each}}
+			{{else}}
+		<h1 class="text-center">No menu in this group </h1>
+		{{/if}}
+				</div>
+				<div class="modal-footer">
+				{{#if this}}
+					<button id='add_discount' class='btn btn-default' >
+						Add discount
+					</button>
+				{{/if}}
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

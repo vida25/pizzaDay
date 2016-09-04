@@ -1,0 +1,36 @@
+<template name="modal_addCategory">
+	<div class="modal fade" id="modal_add_new_category" tabindex="-1" role="dialog"
+																										aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+																							aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title text-center">
+											Fill the required fields</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-6 col-xs-6 col-sm-6 col-lg-6 text-right">
+							<label for="category_name">Category's name:</label>
+						</div>
+						<div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+							<input type="text" id="input_category_name">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button name="save"  class='btn btn-default hidden' >
+						Save
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div>
+	</div>
+</template>
